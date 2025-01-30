@@ -1,10 +1,11 @@
 "use client";
+import { Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from 'react';
 import Link from "next/link";
 
-export default function Result() {
+function ResultContent() {
   const searchParams = useSearchParams();
   const [c1, setC1] = useState('');
   const [c2, setC2] = useState('');
@@ -89,5 +90,13 @@ export default function Result() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Result() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultContent />
+    </Suspense>
   );
 }

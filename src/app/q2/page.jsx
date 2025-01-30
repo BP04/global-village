@@ -1,9 +1,10 @@
 "use client";
+import { Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from 'react';
 
-export default function Q2() {
+function Q2Content() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [c1, setC1] = useState('');
@@ -53,5 +54,13 @@ export default function Q2() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Q2() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Q2Content />
+    </Suspense>
   );
 }
