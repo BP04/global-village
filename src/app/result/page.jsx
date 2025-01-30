@@ -2,12 +2,44 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from 'react';
+import Link from "next/link";
 
 export default function Result() {
   const searchParams = useSearchParams();
   const [c1, setC1] = useState('');
   const [c2, setC2] = useState('');
   const [c3, setC3] = useState('');
+  const [resultImage, setResultImage] = useState('');
+
+  const imageMapper = {
+    'A-A-A': '/japan-thailand.png',
+    'A-A-B': '/southkorea-singapore.png',
+    'A-A-C': '/indonesia-malaysia.png',
+    'A-B-A': '/italy-greece.png',
+    'A-B-B': '/canada-usa.png',
+    'A-B-C': '/switzerland-iceland.png',
+    'A-C-A': '/mexico-peru.png',
+    'A-C-B': '/france-usa.png',
+    'A-C-C': '/canada-newzealand.png',
+    'B-A-A': '/japan-thailand.png',
+    'B-A-B': '/southkorea-singapore.png',
+    'B-A-C': '/indonesia-malaysia.png',
+    'B-B-A': '/italy-greece.png',
+    'B-B-B': '/canada-usa.png',
+    'B-B-C': '/switzerland-iceland.png',
+    'B-C-A': '/mexico-peru.png',
+    'B-C-B': '/france-usa.png',
+    'B-C-C': '/canada-newzealand.png',
+    'C-A-A': '/japan-thailand.png',
+    'C-A-B': '/southkorea-singapore.png',
+    'C-A-C': '/indonesia-malaysia.png',
+    'C-B-A': '/italy-greece.png',
+    'C-B-B': '/canada-usa.png',
+    'C-B-C': '/switzerland-iceland.png',
+    'C-C-A': '/mexico-peru.png',
+    'C-C-B': '/france-usa.png',
+    'C-C-C': '/canada-newzealand.png',
+  };
 
   useEffect(() => {
     const c1Param = searchParams.get('c1');
@@ -22,6 +54,10 @@ export default function Result() {
     if (c3Param) {
       setC3(c3Param);
     }
+    if (c1Param && c2Param && c3Param) {
+      const key = `${c1Param}-${c2Param}-${c3Param}`;
+      setResultImage(imageMapper[key]);
+    }
   }, [searchParams]);
 
   return (
@@ -35,11 +71,22 @@ export default function Result() {
       <div className="absolute top-0 right-[10%] transform translate-x-1/2 z-10">
         <Image src="/label.png" alt="Label" width={150} height={150} className="w-150 h-150 object-cover" />
       </div>
-      <div className="flex flex-col items-center z-20 px-4 md:px-0">
-        <h1 className="text-4xl font-bold mb-8">Your Answers</h1>
-        <p className="text-xl mb-4">Answer to Question 1: {c1}</p>
-        <p className="text-xl mb-4">Answer to Question 2: {c2}</p>
-        <p className="text-xl mb-4">Answer to Question 3: {c3}</p>
+      <div className="flex flex-col md:flex-row items-center justify-center z-20 px-4 md:px-0">
+        <div className="order-1 md:order-2 mb-8 md:mb-0 md:-ml-20">
+          <Image src="/recommended.png" alt="Recommended" width={450} height={200} className="w-full h-auto object-cover" />
+        </div>
+        <div className="flex flex-col items-center order-2 md:order-1 z-20 px-4 md:px-0">
+          {resultImage && (
+            <div className="mt-0 md:mt-8">
+              <Image src={resultImage} alt="Result Image" width={500} height={400} className="w-full h-auto object-cover" />
+            </div>
+          )}
+          <Link href="/">
+            <button className="mt-6 w-full max-w-xs transform transition duration-300 hover:scale-110 active:scale-90">
+              <Image src="/back-button.png" alt="Back Button" width={250} height={80} className="w-full h-auto object-cover" />
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
