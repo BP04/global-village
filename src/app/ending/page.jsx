@@ -25,7 +25,7 @@ function EndingContent() {
                   <Image src="/yes-ending-button.png" alt="Yes Ending Button" width={200} height={60} className="w-full h-auto object-cover sm:w-[250px] sm:h-[80px]" />
                 </button>
               </Link>
-              <Link href="/start">
+              <Link href="/">
                 <button className="w-full max-w-xs transform transition duration-300 hover:scale-110 active:scale-90">
                   <Image src="/no-ending-button.png" alt="No Ending Button" width={200} height={60} className="w-full h-auto object-cover sm:w-[250px] sm:h-[80px]" />
                 </button>
