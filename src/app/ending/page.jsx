@@ -32,7 +32,7 @@ function EndingContent() {
               </Link>
             </div>
           </div>
-          <Image src="/Female-character-3.png" alt="Female Character 3" width={200} height={350} className="object-cover w-[30%] sm:w-[200px] z-20" />
+          <Image src="/female-character-3.png" alt="Female Character 3" width={200} height={350} className="object-cover w-[30%] sm:w-[200px] z-20" />
         </div>
         <Image src="/stop-asking.png" alt="Stop Asking" width={100} height={60} className="w-auto h-auto mt-4" />
       </div>
