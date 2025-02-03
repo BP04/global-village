@@ -17,7 +17,7 @@ export default function Q1() {
       <div className="absolute bottom-0 right-0 z-10">
         <Image src="/cloud2.png" alt="Cloud 2" width={300} height={300} className="w-300 h-300 object-cover" />
       </div>
-      <div className="absolute top-0 right-[10%] transform translate-x-1/2 z-10">
+      <div className="absolute top-0 right-[20%] transform translate-x-1/2 z-10">
         <Image src="/label.png" alt="Label" width={150} height={150} className="w-150 h-150 object-cover" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center z-20 px-4 md:px-0">
