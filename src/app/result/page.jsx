@@ -64,26 +64,23 @@ function ResultContent() {
   return (
     <div className="relative flex min-h-screen items-center justify-center" style={{ backgroundImage: "url('/game-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="absolute top-0 left-0 z-10">
-        <Image src="/cloud1.png" alt="Cloud 1" width={300} height={300} className="w-300 h-300 object-cover" />
+        <Image src="/cloud1.png" alt="Cloud 1" width={300} height={300} className="w-[300px] h-[300px] object-cover" />
       </div>
       <div className="absolute bottom-0 right-0 z-10">
-        <Image src="/cloud2.png" alt="Cloud 2" width={300} height={300} className="w-300 h-300 object-cover" />
-      </div>
-      <div className="absolute top-0 right-[20%] transform translate-x-1/2 z-10">
-        <Image src="/label.png" alt="Label" width={150} height={150} className="w-150 h-150 object-cover" />
+        <Image src="/cloud2.png" alt="Cloud 2" width={300} height={300} className="w-[300px] h-[300px] object-cover" />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center z-20 px-4 md:px-0">
-        <div className="order-1 md:order-2 mb-8 md:mb-0 md:-ml-20">
+        <div className="order-2 mb-4 -mt-10 md:mt-0 md:mb-0 md:-ml-20">
           <Image src="/recommended.png" alt="Recommended" width={450} height={200} className="w-full h-auto object-cover" />
         </div>
-        <div className="flex flex-col items-center order-2 md:order-1 z-20 px-4 md:px-0">
+        <div className="flex flex-col items-center order-1 z-20 px-4 md:px-0">
           {resultImage && (
-            <div className="mt-0 md:mt-8">
+            <div className="mt-[100px] md:mt-8">
               <Image src={resultImage} alt="Result Image" width={500} height={400} className="w-full h-auto object-cover" />
             </div>
           )}
           <Link href="/campaign">
-            <button className="mt-6 w-full max-w-xs transform transition duration-300 hover:scale-110 active:scale-90">
+            <button className="mt-4 w-full max-w-xs transform transition duration-300 hover:scale-110 active:scale-90">
               <Image src="/next-button.png" alt="Next Button" width={250} height={80} className="w-full h-auto object-cover" />
             </button>
           </Link>

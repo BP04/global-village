@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import PlayMusicButton from "./components/PlayMusicButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +23,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="fixed left-4 bottom-4 sm:left-0 sm:bottom-[5%] sm:transform sm:translate-x-1/2 z-40">
+          <PlayMusicButton />
+        </div>
         {children}
       </body>
     </html>
